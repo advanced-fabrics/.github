@@ -1,0 +1,32 @@
+name: DCO
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dco:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify sign-offs
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git log --format='%H%x00%B%x00' "$BASE_SHA..$HEAD_SHA" | python3 -c '
+          import os, sys
+          records = sys.stdin.read().split("\0")
+          failed = []
+          for i in range(0, len(records) - 1, 2):
+              sha, body = records[i], records[i + 1]
+              if sha and "Signed-off-by:" not in body:
+                  failed.append(sha)
+          if failed:
+              print("Missing Signed-off-by: " + ", ".join(failed))
+              raise SystemExit(1)
+          '
