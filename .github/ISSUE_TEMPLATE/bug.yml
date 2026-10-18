@@ -2,7 +2,7 @@ name: Bug report
 description: Report a reproducible defect
 body:
   - type: textarea
-    attributes: {label: What happened?}
+    attributes: {label: "What happened?"}
     validations: {required: true}
   - type: textarea
     attributes: {label: Reproduction and environment}
@@ -13,13 +13,3 @@ body:
       options:
         - label: This report contains no credentials or private topology.
           required: true
-*** Add File: /Volumes/A1/advanced-fabrics-dotgithub/.github/PULL_REQUEST_TEMPLATE.md
-## Change
-
-## Compatibility and security impact
-
-## Tests
-
-- [ ] Commits include DCO sign-off.
-- [ ] Public API changes link an AFEP and conformance update.
-- [ ] No credentials or private infrastructure data are included.

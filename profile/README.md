@@ -7,6 +7,7 @@ AdvFab defines portable APIs for topology, routing, observation, policy and cont
 - Website: https://advfab.org
 - Documentation: https://docs.advfab.org
 - Specifications and AFEPs: https://spec.advfab.org
+- Public roadmap: https://github.com/orgs/advanced-fabrics/projects
 - Security reports: security@advfab.org
 
 Advanced Fabrics was initiated by RE8CH and is being developed as an independent open source project. It is not a CNCF project and does not claim CNCF endorsement.
